@@ -1,9 +1,8 @@
 FROM armhf/debian
 MAINTAINER Erin L. Kolp <erinlkolpfoss@gmail.com>
 
-RUN apt-get update
-
-RUN apt-get install -y build-essential libtool autoconf automake \
+RUN apt-get update && \
+    apt-get install -y build-essential libtool autoconf automake \
                        autoconf-archive pkg-config wget mlocate \
                        libssl1.0.0 libssl-dev zlib1g zlib1g-dev \
                        libcurl4-openssl-dev lsb-base  ncurses-dev \
@@ -14,9 +13,12 @@ RUN apt-get install -y build-essential libtool autoconf automake \
 
 RUN wget http://apache.cs.utah.edu/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz
 
-RUN tar xvzf apache-couchdb-1.7.1.tar.gz && \
-    cd apache-couchdb-1.7.1/ && \
-    ./configure && make && make install
+RUN tar xvzf apache-couchdb-1.7.1.tar.gz
+
+RUN cd apache-couchdb-1.7.1/ && \
+    ./configure && \
+    make && \
+    make install
 
 RUN sed -i -e 's/127.0.0.1/0.0.0.0/g' /usr/local/etc/couchdb/default.ini
 
