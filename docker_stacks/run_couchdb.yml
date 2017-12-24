@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  nomie-couchdb:
+    image: ekolp/rpi-couchdb:latest
+    environment:
+      - ADMIN_PW=blah
+    ports:
+      - "5984:5984"
