@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HOST=http://localhost:5984
-ADMIN_PW="blah"
+ADMIN_PW=blah
 
 # Setup CORS
 curl -X PUT $HOST/_config/httpd/enable_cors -d '"true"'
