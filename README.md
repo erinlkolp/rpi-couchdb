@@ -20,5 +20,12 @@ make build
 docker run -d -p 5984:5984 ekolp/rpi-couchdb:latest
 ```
 
+## Setup Nomie tables
+
+```
+# Be sure to edit the file OR use ENV VARs for your password first!
+./setup_nomie_tables.sh
+```
+
 Author: Erin L. Kolp <erinlkolpfoss@gmail.com>
 
